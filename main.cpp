@@ -4,19 +4,24 @@
 #include <conio.h>
 #include <algorithm>
 #include <iterator>
+#include <thread>
+#include <chrono>
 #include "constants.cpp"
 #include "FieldClass.cpp"
 #include "SnakeClass.cpp"
 
+#include <Windows.h>
+
 using namespace std;
 
-// Add
+// Add clock for automatically move the snake
 
 class Game {
 	public:
 		Field field;
 		Snake snake;
 		bool gameEnded = false;
+		int currentDirection = 0;
 		
 		Game() {
 			spawnSnake();
@@ -28,6 +33,8 @@ class Game {
 			while(gameEnded == false) {
 				field.printField();
 				move();
+				this_thread::sleep_for(chrono::milliseconds(100));
+				changeDirection();
 			}
 			endGame();
 		}
@@ -56,11 +63,28 @@ class Game {
 			}
 		}
 		
+		// https://stackoverflow.com/questions/41600981/how-do-i-check-if-a-key-is-pressed-on-c
+		// https://docs.microsoft.com/it-it/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
+		
+		void changeDirection() {
+			if (GetKeyState(VK_UP) & 0x8000) {
+				currentDirection = DIR_UP;
+			}
+			else if (GetKeyState(VK_DOWN) & 0x8000) {
+				currentDirection = DIR_DOWN;
+			}
+			else if (GetKeyState(VK_LEFT) & 0x8000) {
+				currentDirection = DIR_LEFT;
+			}
+			else if (GetKeyState(VK_RIGHT) & 0x8000) {
+				currentDirection = DIR_RIGHT;
+			}
+		}
+		
 		void move() {
-			int dim;
 			int nextX;
 			int nextY;
-			switch(dim = getch()) {
+			switch(currentDirection) {
 				case DIR_UP: 
 					nextX = snake.pos[0][0];
 					nextY = snake.pos[0][1] - 1;

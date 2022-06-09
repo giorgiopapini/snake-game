@@ -10,7 +10,7 @@ const char HORIZONTAL_BORDER = '-';
 const char VERTICAL_BORDER = '|';
 const char CORNER_BORDER = '+';
 
-const int DIM = 12;
+const int DIM = 22;
 
 const int TOP = 0;
 const int DOWN = 1;
