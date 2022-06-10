@@ -23,7 +23,7 @@ class Snake {
 		
 		void grow() {
 			length += 1;
-			pos[length - 1][0] = pos[length - 2][0];  // It copies the last position and inserts it inside pos array
+			pos[length - 1][0] = pos[length - 2][0];  // It copies the last position and inserts it inside new empty space inside pos array
 			pos[length - 1][1] = pos[length - 2][1];
 		}
 };

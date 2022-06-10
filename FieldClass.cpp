@@ -4,7 +4,6 @@
 using namespace std;
 
 class Field {
-
 	public:
 		string grid[DIM];
 		

@@ -157,6 +157,7 @@ class Game {
 			}
 		}
 
+
 	private:
 		bool isNextPosValid(int _nextX, int _nextY) {
 			if (field.grid[_nextY][_nextX] == VERTICAL_BORDER || field.grid[_nextY][_nextX] == HORIZONTAL_BORDER || field.grid[_nextY][_nextX] == snake.symbol) {
