@@ -33,7 +33,12 @@ class Game {
 		
 		void endGame() {
 			system("cls");
-			cout << endl << "Game Over!" << endl;
+			cout << " __________________________________________" << endl;
+			cout << "|                                          |" << endl;
+			cout << "|                GAME OVER!                |" << endl;
+			cout << "|__________________________________________|" << endl;
+			cout << endl;
+			cout << "- Total score: " << snake.length - 1 << endl << endl;
 			system("pause");
 		}
 		

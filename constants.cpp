@@ -3,8 +3,8 @@
 
 using namespace std;
 
-const char SNAKE_CHAR = 'O';
-const char APPLE_CHAR = '@';
+char SNAKE_CHAR = 'O';
+char APPLE_CHAR = '@';
 
 const char HORIZONTAL_BORDER = '-';
 const char VERTICAL_BORDER = '|';
